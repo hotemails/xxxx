@@ -341,47 +341,6 @@ class leech():
             pass
 
     @staticmethod
-    def crackingx_email():
-        try:
-            print()
-            for page in range(1, pages):
-                try:
-                    req = session.get(
-                        f"https://crackingx.com/forums/5/page-{page}?prefix_id=1&order=post_date&direction=desc",
-                        headers=agent,
-                        timeout=10
-                    )
-                    soup = BeautifulSoup(req.text, 'html.parser')
-                    thread_items = soup.find_all('div', class_='structItem--thread')
-                    
-                    with ThreadPoolExecutor(max_workers=10) as executor:
-                        futures = []
-                        for item in thread_items:
-                            try:
-                                title_div = item.find('div', class_='structItem-title')
-                                if title_div:
-                                    title_link = title_div.find('a', {'data-tp-primary': 'on'})
-                                    if title_link:
-                                        thread_url = title_link.get('href')
-                                        if thread_url:
-                                            futures.append(
-                                                executor.submit(leech.process_thread, thread_url)
-                                            )
-                            except:
-                                continue
-                        
-                        for future in as_completed(futures):
-                            try:
-                                future.result()
-                            except:
-                                continue
-                except:
-                    continue
-            print('\n')
-        except:
-            pass
-
-    @staticmethod
     def process_thread(thread_url):
         try:
             accounts_found = []
