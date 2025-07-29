@@ -1,0 +1,21 @@
+{
+    "domains": {
+        "riotgames.com": false,
+        "crunchyroll.com": false,
+        "epicgames.com": false,
+        "roblox.com": false,
+        "instagram.com": false,
+        "krunker.io": false,
+        "wp.pl": true,
+        "gmail.com": false,
+        "hotmail.com": false
+    },
+    "email_domains": {
+        "hotmail.com": false,
+        "gmail.com": false,
+        "yahoo.com": false,
+        "outlook.com": false,
+        "wp.pl": true
+    },
+    "scrape_mode": "Gaming"
+}
